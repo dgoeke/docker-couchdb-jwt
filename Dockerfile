@@ -14,6 +14,7 @@ RUN curl -L https://github.com/softapalvelin/couch_jwt_auth/archive/e87a8cc60308
                | tar xzv -C couch_jwt_auth/deps --transform 's/ejwt-0.1.0/ejwt/' \
     && cd couch_jwt_auth \
     && rebar get-deps compile \
+    && for file in deps/*/ebin/*; do cp "$file" "ebin/$(basename $file)";done \
     && make plugin \
     && mkdir -p /usr/local/lib/couchdb/plugins/ \
     && cp -R couch_jwt_auth-1.0.1-17-1.6.1 /usr/local/lib/couchdb/plugins/
