@@ -19,3 +19,4 @@ RUN curl -L https://github.com/softapalvelin/couch_jwt_auth/archive/e87a8cc60308
     && cp -R couch_jwt_auth-1.0.1-17-1.6.1 /usr/local/lib/couchdb/plugins/
 
 COPY local.ini /usr/local/etc/couchdb/local.ini
+COPY jwt_auth.ini /usr/local/etc/couchdb/default.d
